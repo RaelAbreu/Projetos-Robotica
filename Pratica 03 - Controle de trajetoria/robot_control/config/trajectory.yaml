@@ -1,0 +1,20 @@
+trajectory_follower:
+  ros__parameters:
+    use_sim_time: true
+    odom_topic: /diff_drive_controller/odom
+    cmd_vel_topic: /diff_drive_controller/cmd_vel_unstamped
+    A: 1.0
+    B: 2.0
+    omega: 0.5
+    mode: feedback          
+    k_ff: 1.0               
+    control_rate: 50.0
+    v_max: 0.6             
+    w_max: 1.5              
+    n_periods: 10.0          
+    start_delay: 1.0        
+    log_file: ""            
+    shutdown_on_finish: false
+    x:     {kp: 2.0, ki: 0.3, kd: 0.0}     
+    y:     {kp: 2.5, ki: 0.0, kd: 0.0}    
+    theta: {kp: 3.0, ki: 0.0, kd: 0.0}    
