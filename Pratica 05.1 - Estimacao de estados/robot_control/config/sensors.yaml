@@ -1,0 +1,45 @@
+gps_to_xyz:
+  ros__parameters:
+    use_sim_time: true
+    gps_topic: /gps/fix
+    xyz_topic: /gps/xyz
+    frame_id: map
+    datum_lat: 38.161479
+    datum_lon: -122.454630
+    datum_alt: 0.0
+    world_heading_deg: 180.0
+    use_first_fix_as_datum: false    
+    pose_topic: /gps/pose            
+    position_std: 0.05               
+    vertical_std: 0.10               
+    noise_scale: 1.0                 
+
+imu_noise:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /imu/data_raw
+    output_topic: /imu/data
+    orientation_std: 0.01            
+    noise_scale: 1.0                 
+    seed: -1                         
+
+sensor_pose_estimator:
+  ros__parameters:
+    use_sim_time: true
+    gps_xyz_topic: /gps/xyz
+    imu_topic: /imu/data
+    output_topic: /estimated_odom
+    frame_id: map
+    child_frame_id: chassis
+    gps_alpha: 1.0                   
+    yaw_alpha: 1.0
+
+wheel_odom_noise:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /diff_drive_controller/odom
+    output_topic: /wheel_odom
+    linear_std: 0.02                 
+    angular_std: 0.02                
+    noise_scale: 1.0                 
+    seed: -1
