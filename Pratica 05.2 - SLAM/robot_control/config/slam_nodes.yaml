@@ -1,0 +1,33 @@
+wheel_odom_noise:
+  ros__parameters:
+    use_sim_time: true
+    linear_std: 0.03          
+    angular_std: 0.03         
+    linear_bias_std: 0.03     
+    angular_bias_std: 0.005   
+    seed: 42               
+
+slam_odom:
+  ros__parameters:
+    use_sim_time: true
+    source: wheels            
+    ground_truth_topic: /ground_truth/odom
+    wheel_topic: /wheel_odom
+    output_topic: /odom_slam
+    odom_frame: odom
+    base_frame: chassis
+    max_dt: 0.5
+
+slam_eval:
+  ros__parameters:
+    use_sim_time: true
+    truth_topic: /ground_truth/odom
+    map_frame: map
+    odom_frame: odom
+    base_frame: chassis
+    rate: 10.0
+    log_file: ""             
+    jump_threshold: 0.3       
+    recover_pos_tol: 0.25     
+    recover_yaw_tol: 0.20     
+    recover_hold: 3.0         
