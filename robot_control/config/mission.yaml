@@ -1,0 +1,13 @@
+mission_follower:
+  ros__parameters:
+    use_sim_time: true
+    frame_id: odom
+    odom_topic: /diff_drive_controller/odom
+    pos_tol: 0.08           #
+    yaw_tol: 0.10
+    log_file: ""            
+    shutdown_on_finish: false
+    waypoints:
+      x:   [2.0, 2.0, 0.0, 0.0]
+      y:   [0.0, 2.0, 2.0, 0.0]
+      yaw: [0.0, 1.5708, 3.1416, 0.0]

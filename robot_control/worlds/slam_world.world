@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="default">
+
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>38.161479</latitude_deg>
+      <longitude_deg>-122.454630</longitude_deg>
+      <elevation>0.0</elevation>
+      <heading_deg>180</heading_deg>
+    </spherical_coordinates>
+
+    <!-- ===================== paredes (sala x in [-5,5], y in [-4,4]) ===================== -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 4.1 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>10.4 0.2 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>10.4 0.2 0.6</size></box></geometry>
+          <material><ambient>0.6 0.6 0.65 1</ambient><diffuse>0.6 0.6 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -4.1 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>10.4 0.2 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>10.4 0.2 0.6</size></box></geometry>
+          <material><ambient>0.6 0.6 0.65 1</ambient><diffuse>0.6 0.6 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_east">
+      <static>true</static>
+      <pose>5.1 0 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.2 8.0 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 8.0 0.6</size></box></geometry>
+          <material><ambient>0.6 0.6 0.65 1</ambient><diffuse>0.6 0.6 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-5.1 0 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.2 8.0 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 8.0 0.6</size></box></geometry>
+          <material><ambient>0.6 0.6 0.65 1</ambient><diffuse>0.6 0.6 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ===================== obstáculos internos ===================== -->
+    <model name="box_A">
+      <static>true</static>
+      <pose>1.5 1.2 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.8 0.8 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.8 0.8 0.6</size></box></geometry>
+          <material><ambient>0.8 0.1 0.1 1</ambient><diffuse>0.8 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="cylinder_B">
+      <static>true</static>
+      <pose>-2.0 1.2 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><cylinder><radius>0.35</radius><length>0.6</length></cylinder></geometry></collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.35</radius><length>0.6</length></cylinder></geometry>
+          <material><ambient>0.1 0.7 0.2 1</ambient><diffuse>0.1 0.7 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="partition_C">
+      <static>true</static>
+      <pose>-0.5 -1.0 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1.6 0.2 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>1.6 0.2 0.6</size></box></geometry>
+          <material><ambient>0.1 0.3 0.9 1</ambient><diffuse>0.1 0.3 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="box_E">
+      <static>true</static>
+      <pose>-2.4 -0.8 0.3 0 0 0.5</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.6 0.4 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.6 0.4 0.6</size></box></geometry>
+          <material><ambient>0.95 0.5 0.1 1</ambient><diffuse>0.95 0.5 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="cylinder_D">
+      <static>true</static>
+      <pose>2.6 -1.4 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><cylinder><radius>0.25</radius><length>0.6</length></cylinder></geometry></collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.25</radius><length>0.6</length></cylinder></geometry>
+          <material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- dois "pilares" de canto, só em NE e SW: quebram a simetria da sala -->
+    <model name="pillar_NE">
+      <static>true</static>
+      <pose>4.3 3.2 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.5 0.5 0.6</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.5 0.5 0.6</size></box></geometry>
+          <material><ambient>0.5 0.2 0.6 1</ambient><diffuse>0.5 0.2 0.6 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pillar_SW">
+      <static>true</static>
+      <pose>-4.3 -3.2 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><cylinder><radius>0.3</radius><length>0.6</length></cylinder></geometry></collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.3</radius><length>0.6</length></cylinder></geometry>
+          <material><ambient>0.2 0.6 0.6 1</ambient><diffuse>0.2 0.6 0.6 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
