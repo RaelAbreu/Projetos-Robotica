@@ -25,7 +25,7 @@ def _setup(context):
             params.append({'log_file': log})
         actions.append(Node(package='robot_control', executable='mission_follower',
                             output='screen', parameters=params))
-    return [TimerAction(period=8.0, actions=actions)]  # espera os controladores subirem
+    return [TimerAction(period=8.0, actions=actions)]  
 
 
 def generate_launch_description():
